@@ -1,14 +1,36 @@
 import './NewsCard.css';
+import Auth from '../Auth/Auth';
 import React from 'react';
 
 class NewsCard extends React.Component {
-  redirectToUrl(url) {
-    window.open(url, '_blank');
+  constructor() {
+    super();
+    this.redirectToUrl = this.redirectToUrl.bind(this);
+  }
+
+  redirectToUrl(event) {
+    event.preventDefault();
+    this.sendClickLog();
+    window.open(this.props.news.url, '_blank');
+  }
+
+  sendClickLog() {
+    const url = 'http://localhost:3000/news/userId/' + Auth.getEmail()
+              + '/newsId/' + this.props.news.digest;
+
+    const request = new Request(encodeURI(url), {
+      method: 'POST',
+      headers: {
+        'Authorization': 'bearer ' + Auth.getToken(),
+      },
+      cache: false});
+
+    fetch(request);
   }
 
   render() {
     return (
-      <div className="news-container" onClick={()=>this.redirectToUrl(this.props.news.url)}>
+      <div className="news-container" onClick={this.redirectToUrl}>
         <div className='row'>
           <div className='col s4 fill'>
             <img src={this.props.news.urlToImage} alt='news'/>
