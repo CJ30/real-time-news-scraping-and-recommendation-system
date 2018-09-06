@@ -13,7 +13,7 @@ Scraper is responsible for receiving tasks from scrape_news message queue, scrap
 * **Deduper**:
 Deduper is designed for deduping reports from different news sources related to same event. Since TF-IDF(Term Frequency-Inverse Document Frequency) weights of similar news are similar, if TF-IDF of the latest news is similar to any news in the past 24 hours, that news would be discarded as a duplicate news. 
 
-![](TODO: news_pipeline.png)
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/news_pipeline.png)
 
 ### Topic Modeling：
 It’s tedious and unwise to tag each news manually. Thus, I implement Topic Modeling by tensorflow. After training the model, integrate Topic Modeling server side and client side with other services.
@@ -32,8 +32,7 @@ It’s tedious and unwise to tag each news manually. Thus, I implement Topic Mod
 
 * **Pooling Layer**:
 The goal of pooling is to provide a fixed size output matrix, which typically is required for classification (8 classes). Pooling also keeps the most salient information 
-
-![](TODO: topic_modeling.png)
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/topic_modeling.png)
 ![](http://deeplearning.stanford.edu/wiki/images/6/6c/Convolution_schematic.gif "Convolution")
 
 
@@ -55,7 +54,7 @@ If not selected: p = (1 - α) * p
 * **Recommendation Service**:
 	When a user starts to browse news, backend service requests preference model from recommendation service, while recommendation service fetches user’s preference model from database. And all recommended topic would be tagged as “Recommend”.
   
-![](TODO: recommendation_service)
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/recommendation_service.png)
 
 ### Authentication and Authorization：
 Instead of using mature solutions like Auth0, I try to set up local strategy to do authentication and authorization.
@@ -73,12 +72,12 @@ hashed password = hash (plain password + randomly generated salt)
 * **Authorization**:
 	After user’s login, each time user loads more news, request with token was sent to backend. AuthChecker, a middleware, decodes the token and verify it. Only if the token is valid, more news would be sent back to user.
 
-![](TODO: auth.png)
-
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/auth.png)
 
 * **Architecture**:
 React is used to build frontend UI and Node serves as web server.
-![](TODO: newsArchitecture.png)
+
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/newsArchitecture.png)
 
 ## Author
 * Chengjin Sun (CJ30)
