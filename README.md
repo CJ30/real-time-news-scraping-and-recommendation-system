@@ -2,6 +2,12 @@
 ## Introduction:
 Real-time News Scraping and Recommendation System is a single-page web application. The goal is to provide a reading news platform where users could read latest news, tagged by different topics and recommended based on users' behaviors. 
 
+### Architecture:
+React is used to build frontend UI and Node serves as web server.
+
+![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/pics/newsArchitecture.png)
+
+
 ### News Pipeline：
 In order to provide latest and distinct news, I build a data pipeline consists of news monitor, scraper, and dedeuper, connected with multiple message queues. 
 * **Monitor**: 
@@ -76,10 +82,6 @@ hashed password = hash (plain password + randomly generated salt)
 
 ![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/pics/auth.png)
 
-### Architecture:
-React is used to build frontend UI and Node serves as web server.
-
-![](https://github.com/CJ30/real-time-news-scraping-and-recommendation-system/blob/master/pics/newsArchitecture.png)
 
 ## Author
 * Chengjin Sun (CJ30)
