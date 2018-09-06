@@ -2,7 +2,7 @@
 ## Introduction:
 Real-time News Scraping and Recommendation System is a single-page web application. The goal is to provide a reading news platform where users could read latest news, tagged by different topics and recommended based on users' behaviors. 
 
-### News Pipeline
+### News Pipeline：
 In order to provide latest and distinct news, I build a data pipeline consists of news monitor, scraper, and dedeuper, connected with multiple message queues. 
 * **Monitor**: 
 By calling News API，monitor gets the abstract of latest news from multiple news resources(eg. BBC-news, CNN, IGN …). For each news fetched, hash it and compare the hash code with hash code of other recent news, if hash code already exists in Redis, ignore it, or one different news was found, and monitor passed the news to scrape_news message queue. This step guarantees each news passed to scrape_news message queue is not identical. 
@@ -15,7 +15,7 @@ Deduper is designed for deduping reports from different news sources related to 
 
 ![](TODO: news_pipeline.png)
 
-### Topic Modeling
+### Topic Modeling：
 It’s tedious and unwise to tag each news manually. Thus, I implement Topic Modeling by tensorflow. After training the model, integrate Topic Modeling server side and client side with other services.
 
 * **Vocabulary Embedding**:
@@ -57,7 +57,7 @@ If not selected: p = (1 - α) * p
   
 ![](TODO: recommendation_service)
 
-### Authentication and Authorization 
+### Authentication and Authorization：
 Instead of using mature solutions like Auth0, I try to set up local strategy to do authentication and authorization.
 
 * **Sign up & Log in**:
@@ -75,3 +75,7 @@ hashed password = hash (plain password + randomly generated salt)
 
 ![](TODO: auth.png)
 
+
+* **Architecture**:
+React is used to build frontend UI and Node serves as web server.
+![](TODO: newsArchitecture.png)
