@@ -73,4 +73,5 @@ hashed password = hash (plain password + randomly generated salt)
 * **Authorization**:
 	After user’s login, each time user loads more news, request with token was sent to backend. AuthChecker, a middleware, decodes the token and verify it. Only if the token is valid, more news would be sent back to user.
 
+![](TODO: auth.png)
 
