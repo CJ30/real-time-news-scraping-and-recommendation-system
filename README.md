@@ -57,5 +57,20 @@ If not selected: p = (1 - α) * p
   
 ![](TODO: recommendation_service)
 
+### Authentication and Authorization 
+Instead of using mature solutions like Auth0, I try to set up local strategy to do authentication and authorization.
+
+* **Sign up & Log in**:
+	Client side sends post request and server side validates if the user information is valid. At server side, all password is hashed with salt for storage. When user login, palin password is compared with hashed salt password ([bcrypt library](https://www.npmjs.com/package/bcrypt))
+
+```
+hashed password = hash (plain password + randomly generated salt)
+```
+
+* **Authentication**:
+	When an user login in at the first time, a token (JWT) would be sent back to client side and stored in local storage. Since token should be unique, userId is used as payload with jwtSecret to generate token. 
+
+* **Authorization**:
+	After user’s login, each time user loads more news, request with token was sent to backend. AuthChecker, a middleware, decodes the token and verify it. Only if the token is valid, more news would be sent back to user.
 
 
