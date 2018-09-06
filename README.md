@@ -79,3 +79,6 @@ hashed password = hash (plain password + randomly generated salt)
 * **Architecture**:
 React is used to build frontend UI and Node serves as web server.
 ![](TODO: newsArchitecture.png)
+
+## Author
+* Chengjin Sun (CJ30)
