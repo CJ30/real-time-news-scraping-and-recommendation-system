@@ -1,6 +1,6 @@
-# Real-time News Scraping and Recommendation System
+# News Scraping and Recommendation System
 ## Introduction:
-Real-time News Scraping and Recommendation System is a single-page web application. The goal is to provide a reading news platform where users could read latest news, tagged by different topics and recommended based on users' behaviors. 
+News Scraping and Recommendation System is a single-page web application. The goal is to provide a reading news platform where users could read latest news, tagged by different topics and recommended based on users' behaviors. 
 
 ### Architecture:
 React is used to build frontend UI and Node serves as web server.
